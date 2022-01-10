@@ -3,6 +3,8 @@ package com.company.controller;
 import com.company.model.Bestellung;
 import com.company.model.Produkte;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,8 +13,8 @@ public class BestellungController implements BestellungControllerInterface{
 
     private List<Bestellung> bestellungList;
 
-    public BestellungController(List<Bestellung> bestellungList) {
-        this.bestellungList = bestellungList;
+    public BestellungController() {
+        this.bestellungList = new ArrayList<>();
     }
 
     @Override
@@ -55,11 +57,22 @@ public class BestellungController implements BestellungControllerInterface{
 
     @Override
     public void sortNachPreis() {
-        bestellungList.stream().sorted()
+        bestellungList.stream().
+                sorted(Comparator.comparingInt(Bestellung::produkteSum).
+                        reversed()).
+                forEach(bestellung -> System.out.println(bestellung.toString()));
     }
 
     @Override
-    public void filterNachProdukt() {
+    public void filterNachProdukt(String produktName) {
+
+        for(Bestellung bestellung : bestellungList){
+            for(Produkte produkte : bestellung.getProdukteList()){
+                if(produkte.getName().equals(produktName)){
+                    System.out.println(bestellung.toString());
+                }
+            }
+        }
 
     }
 

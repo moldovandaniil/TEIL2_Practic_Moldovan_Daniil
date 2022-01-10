@@ -47,7 +47,7 @@ public interface BestellungControllerInterface {
 
         void sortNachPreis();
 
-        void filterNachProdukt();
+        void filterNachProdukt(String produktName);
     }
 
 

@@ -2,6 +2,7 @@ package com.company.controller;
 
 import com.company.model.Produkte;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,9 +11,9 @@ public class ProdukteController implements ProdukteControllerInterface {
     private final List<Produkte> produkteList;
 
 
-    public ProdukteController(List<Produkte> produkteList, List<Produkte> produkteList1) {
+    public ProdukteController() {
 
-        this.produkteList = produkteList1;
+        this.produkteList = new ArrayList<>();
     }
 
 

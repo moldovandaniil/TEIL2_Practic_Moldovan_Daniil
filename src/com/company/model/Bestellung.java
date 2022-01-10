@@ -46,4 +46,13 @@ public class Bestellung {
         }
         return sum;
     }
+
+    @Override
+    public String toString() {
+        return "Bestellung{" +
+                "bestellNr=" + bestellNr +
+                ", addresse='" + addresse + '\'' +
+                ", produkteList=" + produkteList +
+                '}';
+    }
 }
